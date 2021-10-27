@@ -15,8 +15,7 @@ const layers = [
         source: new ImageWMS({
             url: 'https://ahocevar.com/geoserver/wms',
             params: { 'LAYERS': 'topp:states' },
-            ratio: 1,
-            serverType: 'geoserver',
+            ratio: 1
         }),
     }),
 ];
