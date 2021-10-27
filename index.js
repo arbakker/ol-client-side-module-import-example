@@ -1,9 +1,9 @@
 import { default as ImageLayer } from 'https://esm.run/ol@6.9.0/src/layer/Image';
 import { default as ImageWMS } from 'https://esm.run/ol@6.9.0/src/source/ImageWMS';
 import { default as Map } from 'https://esm.run/ol@6.9.0/src/Map';
-import { default as View } from 'https://esm.run/ol@6.9.0/src/View';
 import { default as TileLayer } from 'https://esm.run/ol@6.9.0/src/layer/Tile';
 import { default as OSM } from 'https://esm.run/ol@6.9.0/src/source/OSM';
+// import { default as View } from 'https://esm.run/ol@6.9.0/src/View'; // View not required since Map.SetView only accepts promise returning viewOptions
 
 const osmSource = new OSM()
 const layers = [
@@ -22,7 +22,7 @@ const layers = [
 const map = new Map({})
 map.setTarget(document.getElementById('map'))
 map.setLayers(layers)
-// somehow promise is expected instead of view object https://openlayers.org/en/latest/apidoc/module-ol_Map-Map.html#setView
+// promise returning viewOptions is expected instead of View object https://openlayers.org/en/latest/apidoc/module-ol_Map-Map.html#setView
 const viewOptions = new Promise((resolve, reject) => {
     resolve(
         {
